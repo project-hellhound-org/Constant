@@ -1,5 +1,9 @@
- <p align="center">
+<p align="center">
   <img src="Image/Banner.png" alt="CONSTANT Banner" width="150%">
+</p>
+
+<p align="center">
+  <img src="Image/Icon.png" alt="CONSTANT App Icon" width="80">
 </p>
 
 <p align="center">
@@ -15,43 +19,15 @@
   <b>Personalized Routine & Productivity Management System</b>
 </p>
 
-<p align="center">
-  CONSTANT is a personalized productivity and routine-tracking application designed to help individuals organize their daily activities, establish consistent habits, manage tasks, monitor progress, and build a structured lifestyle through centralized productivity management.
-</p>
-
----
-
 ## Overview
 
-CONSTANT addresses the challenge of maintaining consistency across everyday responsibilities, personal goals, and long-term routines.
+CONSTANT is a personal productivity and routine management application designed to bring everyday activities into one organized workspace.
 
-Rather than treating habit tracking, task management, scheduling, and progress monitoring as isolated activities, CONSTANT brings these productivity areas into a unified environment.
+It combines habit tracking, task management, calendar scheduling, financial tracking, and productivity analytics. Its local-first architecture stores application data in the browser's IndexedDB through Dexie, while optional AI integration provides intelligent assistance and insights.
 
-Its central philosophy is built around a simple progression:
+The application supports both web and desktop environments through React and Electron.
 
-**Plan → Execute → Track → Analyze → Improve**
-
-The application is designed to help users transform intentions into structured routines, organize responsibilities into manageable tasks, and evaluate their progress through visual productivity insights.
-
-By bringing daily planning and progress tracking together, CONSTANT aims to make consistency measurable, manageable, and sustainable.
-
-### Key Capabilities
-
-- **Personalized Routine Management** — Organize recurring activities and establish structured daily routines.
-- **Habit Tracking** — Monitor habit completion and maintain visibility into personal consistency.
-- **Task Management** — Organize responsibilities using main tasks, subtasks, priorities, and completion states.
-- **Calendar & Scheduling** — Visualize scheduled activities, deadlines, and daily commitments.
-- **Progress Monitoring** — Review productivity metrics and monitor completion progress.
-- **Workspace Organization** — Provide a centralized environment for organizing personal productivity activities.
-- **Analytics & Insights** — Present productivity information to support progress evaluation.
-- **Smart Insights & AI** — Provide a dedicated product area for intelligent productivity assistance.
-- **Personal Productivity Management** — Bring multiple productivity domains together within one application.
-
----
-
-## Productivity Architecture
-
-CONSTANT follows a modular productivity architecture in which individual management areas contribute to a centralized personal productivity environment.
+## Architecture Features
 
 | Layer | Module | Responsibility |
 |---|---|---|
@@ -64,6 +40,47 @@ CONSTANT follows a modular productivity architecture in which individual managem
 | 07 | Smart Insights & AI | Provides an interface for intelligent productivity assistance. |
 | 08 | Finance | Provides a dedicated area for personal financial organization. |
 | 09 | Settings | Centralizes application preferences and configuration. |
+
+## Core Capabilities
+
+- **Local-First Storage:** Stores application data locally using IndexedDB and Dexie.
+- **Habit Management:** Track daily routines and monitor consistency.
+- **Task Organization:** Manage tasks and subtasks in one workspace.
+- **Productivity Analytics:** Review progress and activity.
+- **AI Integration:** Connect local or cloud-based AI models.
+- **Desktop Support:** Run CONSTANT as a desktop application using Electron.
+- **Data Portability:** Export and restore application data through JSON backups.
+
+## Technology Stack
+
+| Component | Technology |
+|---|---|
+| Frontend | React 18 |
+| Language | TypeScript 5 |
+| Build Tool | Vite |
+| Desktop Runtime | Electron |
+| Local Database | IndexedDB |
+| Database Wrapper | Dexie |
+| AI Integration | Ollama / Cloud API |
+| Runtime | Node.js |
+| Package Manager | npm |
+
+---
+
+## Installation & Deployment
+
+### 1. Prerequisites
+
+Install the following dependencies before setting up CONSTANT.
+
+| Requirement | Minimum Version |
+|---|---|
+| Node.js | 18+ |
+| npm | 9+ |
+| Python | 3.8+ |
+| Git | Latest stable |
+
+---
 
 ### Productivity Workflow
 
@@ -142,26 +159,32 @@ Key areas:
 - Activity status indicators.
 
 ### 5. Workspace
-
 The Workspace provides a dedicated area for organizing productivity-related information and activities.
-
-It complements the central task and routine-management workflow.
-
+- Organize productivity-related content in one place.
+- Maintain a structured workspace for ongoing activities.
+- Keep relevant information accessible.
+- Complement the central task and routine-management workflow.
+  
 ### 6. Analytics & Smart Insights
-
-The Analytics and Smart Insights areas are intended to support productivity evaluation and provide a broader understanding of personal progress.
-
-Their purpose is to help users identify patterns, review consistency, and understand their productivity over time.
+The Analytics and Smart Insights areas support productivity evaluation and provide a broader understanding of personal progress.
+- Monitor productivity and activity trends.
+- Review habit consistency and completion rates.
+- Identify patterns in daily and long-term activities.
+- Gain AI-assisted insights into personal productivity.
 
 ### 7. Finance
-
 The Finance section provides a dedicated navigation area for personal financial organization within the broader productivity environment.
+- Organize personal financial information.
+- Track financial activities and transactions.
+- Review spending patterns.
+- Maintain financial information alongside other productivity activities.
 
 ### 8. Settings & Configuration
-
 The Settings module centralizes application-level preferences and configuration.
-
-Its responsibility is to provide a consistent location for managing the application's available settings.
+- Manage application preferences.
+- Configure available application options.
+- Control supported personalization settings.
+- Access centralized application configuration.
 
 ---
 
@@ -194,106 +217,270 @@ Its branding emphasizes:
 
 ---
 
-## Installation & Deployment
 
-### Requirements
+Verify your environment:
 
-The exact runtime requirements depend on the application's implementation and the dependency manifests included in the repository.
+```bash
+node --version
+npm --version
+python3 --version
+git --version
+```
 
-General prerequisites:
+### 2. Clone Repository
 
-- Git
-- The runtime and SDK required by the project.
-- The corresponding package manager and development tooling.
-
-### 1. Clone Repository
+Clone the official repository:
 
 ```bash
 git clone https://github.com/project-hellhound-org/Constant.git
+```
+
+Navigate into the project:
+
+```bash
 cd Constant
 ```
 
-### 2. Inspect Project Configuration
-
-Identify the project manifest and its dependency configuration before installing the application.
-
 ### 3. Install Dependencies
 
-Install the dependencies using the package manager and installation procedure specified by the project.
+**Option A — npm installation**
 
-### 4. Launch Application
+```bash
+npm install
+```
 
-Use the development or production launch command defined by the project's configuration.
+**Option B — Installation script**
 
-> Runtime-specific installation and execution commands should be documented against the actual repository configuration rather than assumed.
+```bash
+chmod +x install.sh
+./install.sh
+```
+
+Use one installation method. Running both is generally unnecessary.
+
+### 4. Run CONSTANT
+
+**Web Development Mode**
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal.
+
+**Desktop Development Mode**
+
+```bash
+npm run electron:dev
+```
+
+This launches the Electron desktop environment.
+
+### 5. Available npm Scripts
+
+Inspect the scripts defined by the project:
+
+```bash
+npm run
+```
+
+Use the scripts listed by npm for building, testing, and packaging. Do not assume a script exists simply because a README says it should.
 
 ---
 
-## Operational Usage
+## AI Integration & Configuration
 
-CONSTANT is designed around a straightforward productivity workflow.
+CONSTANT supports optional AI integration through local or cloud-based model providers.
 
-### Daily Productivity Workflow
+### Option 1 — Local AI with Ollama
 
-**Step 1 — Establish Objectives**
+Ollama allows you to run supported language models locally.
 
-Define the activities, habits, and responsibilities that need to be organized.
+**Step 1: Install Ollama**
 
-**Step 2 — Organize Routines**
+Download and install Ollama:
 
-Structure recurring activities into a manageable routine.
+https://ollama.com/download
 
-**Step 3 — Manage Tasks**
+**Step 2: Download a model**
 
-Create main tasks and break larger responsibilities into smaller subtasks.
+```bash
+ollama pull llama3.1
+```
 
-**Step 4 — Schedule Activities**
+**Step 3: Start Ollama**
 
-Use the calendar and scheduling views to organize time-based responsibilities.
+```bash
+ollama serve
+```
 
-**Step 5 — Track Completion**
+**Step 4: Verify the service**
 
-Update habit and task completion states as activities are performed.
+```bash
+curl http://localhost:11434/api/tags
+```
 
-**Step 6 — Review Progress**
+**Step 5: Configure CONSTANT**
 
-Use available productivity summaries and analytics to evaluate consistency and identify improvement areas.
+Open CONSTANT and navigate to its AI settings.
 
----
+Configure the following values:
 
-## Progress Monitoring & Analytics
-
-Progress monitoring is an important part of CONSTANT's productivity philosophy.
-
-The application is designed to make individual activities measurable through completion indicators and consolidated progress views.
-
-| Metric Area | Purpose |
+| Setting | Value |
 |---|---|
-| Habit Progress | Observe consistency in recurring activities. |
-| Task Completion | Monitor completed and pending responsibilities. |
-| Daily Progress | Evaluate progress across daily objectives. |
-| Schedule Tracking | Review activities according to their planned timing. |
-| Productivity Analytics | Understand progress patterns over time. |
+| Provider | Ollama / OpenAI-compatible |
+| Base URL | `http://localhost:11434/v1` |
+| Model | `llama3.1` |
+| API Key | Provider-dependent |
+
+The local OpenAI-compatible chat completion endpoint is:
+
+```text
+http://localhost:11434/v1/chat/completions
+```
+
+### Option 2 — Cloud AI Provider
+
+CONSTANT can also connect to a compatible cloud AI API.
+
+Open the AI configuration settings and provide:
+
+| Setting | Example |
+|---|---|
+| Provider | OpenAI-compatible |
+| API Base URL | Provider API endpoint |
+| Model | `gpt-4o-mini` |
+| API Key | Your provider API key |
+
+**Important:** Use the endpoint and model supported by your selected provider. Never commit API keys or other credentials to Git.
+
+### AI Configuration Checklist
+
+- [ ] Install or select an AI provider.
+- [ ] Verify provider connectivity.
+- [ ] Configure the API base URL.
+- [ ] Select a supported model.
+- [ ] Configure the API key if required.
+- [ ] Save settings.
+- [ ] Test the AI functionality inside CONSTANT.
+
+---
+
+## Data Storage & Backup
+
+CONSTANT uses IndexedDB with Dexie for local application data storage.
+
+**Data management**
+
+- Application data is stored locally in the browser environment.
+- JSON backup and restore functionality supports data portability.
+- Export backups regularly before major updates or environment changes.
+
+**Recommended backup procedure**
+
+1. Open CONSTANT.
+2. Navigate to the available backup or data management option.
+3. Export your data as JSON.
+4. Store the backup in a secure location.
+5. Use the restore option when required.
 
 ---
 
 ## Testing & Verification
 
-Application reliability should be validated across its primary productivity workflows.
+Run the following checks after installation.
 
-Recommended verification areas:
+### 1. Verify Dependencies
 
-- Application startup and initialization.
-- Dashboard rendering and navigation.
-- Habit creation and completion workflows.
-- Main task and subtask management.
-- Calendar and scheduling consistency.
-- Progress calculations and visual indicators.
-- Data persistence and recovery.
-- Application settings and configuration.
-- Responsive interface behavior.
+```bash
+npm ls --depth=0
+```
 
-Automated test execution should follow the test framework and scripts configured in the repository.
+### 2. Inspect Available Scripts
+
+```bash
+npm run
+```
+
+### 3. Run the Application
+
+```bash
+npm run dev
+```
+
+Verify that:
+
+- The application loads successfully.
+- Dashboard components render correctly.
+- Habit creation and tracking work.
+- Tasks and subtasks can be managed.
+- Calendar functionality works.
+- Local data persists after refreshing.
+- Backup and restore operate correctly.
+
+### 4. Verify AI Integration
+
+For Ollama:
+
+```bash
+curl http://localhost:11434/api/tags
+```
+
+Confirm that the configured model is available and test AI functionality through the application.
+
+### 5. Run Automated Tests
+
+If a test script is defined in `package.json`:
+
+```bash
+npm test
+```
+
+If no test script is configured, use the available project-specific test commands shown by:
+
+```bash
+npm run
+```
+
+---
+
+## Production Build
+
+Before preparing a production release, inspect the available build scripts:
+
+```bash
+npm run
+```
+
+If the project defines the standard Vite build script:
+
+```bash
+npm run build
+```
+
+Review the generated build output and test the production application before deployment.
+
+For Electron packaging, use the packaging script defined by the project rather than assuming a particular Electron builder configuration.
+
+---
+
+
+
+## Security & Data Considerations
+
+- CONSTANT uses local-first data storage through IndexedDB.
+- Cloud AI providers may process information sent through their APIs.
+- Avoid sending passwords, authentication tokens, or sensitive personal information to AI providers.
+- Keep API keys out of source control.
+- Maintain secure copies of JSON backups.
+- Review provider privacy policies before enabling external AI services.
+
+## Limitations
+
+- AI functionality depends on the availability and configuration of the selected provider.
+- Local AI performance depends on available system resources and model requirements.
+- Browser-based storage is subject to browser storage policies and user-controlled data deletion.
+- Desktop packaging and automated test commands depend on the scripts configured in the repository.
 
 ---
 
@@ -306,24 +493,6 @@ Automated test execution should follow the test framework and scripts configured
 - **Goal Tracking:** Monitor progress toward personal objectives.
 - **Self-Improvement:** Evaluate productivity patterns and identify areas for improvement.
 - **Personal Organization:** Bring routine management, task planning, and progress monitoring together.
-
----
-
-## Scope & Limitations
-
-The following implementation details must be verified against the actual application before making definitive technical claims:
-
-- Supported operating systems and deployment platforms.
-- Data storage and persistence architecture.
-- Authentication and user-management mechanisms.
-- Cloud synchronization and backup capabilities.
-- Offline functionality.
-- Notification and reminder mechanisms.
-- AI service integration and availability.
-- Data export and import functionality.
-- Security and privacy implementation.
-
-The availability of individual application modules and features depends on the functionality implemented in the current release.
 
 ---
 
