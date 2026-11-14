@@ -1,0 +1,36 @@
+/** Dexie store definitions exactly as shipped in v4 and v5, used to build genuine old databases for upgrade tests. */
+export const V4_STORES = {
+  habits: 'id, name, category, archived',
+  habitLogs: 'id, habitId, date, status, [habitId+date]',
+  tasks: 'id, title, status, priority, dueDate, startDate, endDate, projectId, goalId',
+  subtasks: 'id, taskId, completed',
+  projects: 'id, name, category, status, goalId',
+  goals: 'id, title, category, status',
+  journalEntries: 'id, date, mood, energy',
+  dailyReviews: 'id, date',
+  categories: 'id, name',
+  tags: 'id, name',
+  settings: 'id',
+  aiConversations: 'id, entityType, entityId, updatedAt',
+  aiMessages: 'id, conversationId, timestamp',
+  aiSettings: 'id',
+  wishlistItems: 'id, title, category, status, priority',
+  notes: 'id, title, category, relatedType, relatedId, pinned',
+  financeAccounts: 'id, name, type',
+  financeTransactions: 'id, type, accountId, category, date',
+  financeBudgets: 'id, category, period',
+  financeSavingsGoals: 'id, title, category',
+};
+
+export const V5_STORES = {
+  ...V4_STORES,
+  tasks: 'id, title, status, priority, dueDate, endDate, projectId, goalId',
+  notes: 'id, title, category, relatedType, relatedId, pinned, topicId',
+  wishlistItems: 'id, title, category, status, priority, topicId',
+  topics: 'id, parentId, name, [ownerType+ownerId]',
+  todoLists: 'id, taskId',
+  todoItems: 'id, listId, taskId, scheduledDate, completed, topicId',
+  checklists: 'id, ownerType, ownerId, topicId',
+  checklistItems: 'id, checklistId',
+  entityLinks: 'id, [fromType+fromId], [toType+toId]',
+};
