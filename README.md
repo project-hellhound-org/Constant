@@ -6,17 +6,15 @@
   <img src="Image/Icon.png" alt="CONSTANT App Icon" width="80">
 </p>
 
+<h1 align="center">CONSTANT</h1>
+<p align="center">
+  <b>Personalized Routine & Productivity Management System</b>
+</p>
 <p align="center">
   <img src="https://img.shields.io/badge/PROJECT-CONSTANT-c0392b.svg?style=flat-square" alt="Project">
   <img src="https://img.shields.io/badge/Category-Productivity-blue.svg?style=flat-square" alt="Category">
   <img src="https://img.shields.io/badge/Focus-Routine%20%26%20Habits-black.svg?style=flat-square" alt="Focus">
   <img src="https://img.shields.io/badge/Developed%20By-Project%20Hellhound-lightgrey.svg?style=flat-square" alt="Organization">
-</p>
-
-<h1 align="center">CONSTANT</h1>
-
-<p align="center">
-  <b>Personalized Routine & Productivity Management System</b>
 </p>
 
 ## Overview
