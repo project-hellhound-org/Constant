@@ -7,9 +7,12 @@ const __dirname = path.dirname(__filename);
 
 let mainWindow;
 
+<<<<<<< HEAD
 // Required on Windows for native notifications (and the taskbar icon) to be attributed to the app.
 app.setAppUserModelId('com.projecthellhound.habitos');
 
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1360,
@@ -17,7 +20,11 @@ function createWindow() {
     minWidth: 1024,
     minHeight: 700,
     title: 'CONSTANT — Personalized Routine Tracker',
+<<<<<<< HEAD
     icon: path.join(__dirname, '../build/icon.png'),
+=======
+    icon: path.join(__dirname, '../public/icon.png'),
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     autoHideMenuBar: true,
     backgroundColor: '#080a0f',
     webPreferences: {

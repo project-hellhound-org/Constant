@@ -239,11 +239,18 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
         </div>
 
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+<<<<<<< HEAD
           {/* One cohesive panel: details, steps, scheduling */}
           <div className="task-panel">
           <div className="task-panel-section">
             <h4 className="task-panel-title">
               Details
+=======
+          {/* Section 1: Task Core Overview */}
+          <div style={{ background: 'var(--surface-sunken)', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', margin: 0 }}>
+              1. Task Specification
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
             </h4>
 
             <div className="form-group">
@@ -271,10 +278,17 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
           </div>
 
           {/* Section 2: Subtask Breakdown */}
+<<<<<<< HEAD
           <div className="task-panel-section">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <h4 className="task-panel-title">
                 Do-List Steps ({completedSubtasksCount}/{draftSubtasks.length})
+=======
+          <div style={{ background: 'var(--surface-sunken)', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <CheckSquare size={16} /> 2. Do-List Steps ({completedSubtasksCount}/{draftSubtasks.length})
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
               </h4>
               {isAllDraftSubtasksCompleted && (
                 <span style={{ fontSize: '0.75rem', color: 'var(--accent-primary)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -315,11 +329,19 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
               ))}
             </div>
 
+<<<<<<< HEAD
             <div className="task-step-add">
               <input
                 type="text"
                 className="form-input"
                 style={{ gridColumn: '1 / -1', fontSize: '0.85rem' }}
+=======
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+              <input
+                type="text"
+                className="form-input"
+                style={{ flex: 1, fontSize: '0.85rem' }}
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                 placeholder="Add a step…"
                 value={newSubtaskTitle}
                 onChange={(e) => setNewSubtaskTitle(e.target.value)}
@@ -330,18 +352,30 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
                   }
                 }}
               />
+<<<<<<< HEAD
               <input type="date" aria-label="Step date (optional)" className="form-input" style={{ fontSize: '0.8rem', minWidth: 0 }} value={newStepDate} onChange={(e) => setNewStepDate(e.target.value)} />
               <input type="time" aria-label="Step time (optional)" className="form-input" style={{ fontSize: '0.8rem', minWidth: 0 }} disabled={!newStepDate} value={newStepTime} onChange={(e) => setNewStepTime(e.target.value)} />
               <button type="button" className="btn btn-secondary btn-xs" onClick={handleAddSubtask} style={{ height: 40, justifyContent: 'center' }}>
+=======
+              <input type="date" aria-label="Step date (optional)" className="form-input" style={{ width: 'auto', fontSize: '0.8rem' }} value={newStepDate} onChange={(e) => setNewStepDate(e.target.value)} />
+              <input type="time" aria-label="Step time (optional)" className="form-input" style={{ width: 'auto', fontSize: '0.8rem' }} disabled={!newStepDate} value={newStepTime} onChange={(e) => setNewStepTime(e.target.value)} />
+              <button type="button" className="btn btn-secondary btn-xs" onClick={handleAddSubtask} style={{ padding: '0.5rem 0.85rem' }}>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                 <Plus size={14} /> Add Step
               </button>
             </div>
           </div>
 
           {/* Section 3: Priority & Schedule */}
+<<<<<<< HEAD
           <div className="task-panel-section">
             <h4 className="task-panel-title">
               Priority & Frequency
+=======
+          <div style={{ background: 'var(--surface-sunken)', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--accent-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', margin: 0 }}>
+              3. Priority & Frequency Rules
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
             </h4>
 
             <div className="form-group">
@@ -357,7 +391,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
               </span>
             </div>
 
+<<<<<<< HEAD
             <div className="task-field-grid">
+=======
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
               <div className="form-group">
                 <label className="form-label" htmlFor="task-category">Category</label>
                 <input id="task-category" className="form-input" list="task-category-options" maxLength={32} placeholder="Learning, Work, Health, Personal" value={category} onChange={(e) => setCategory(e.target.value)} />
@@ -375,11 +413,19 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
 
             <div className="form-group">
               <label className="form-label" style={{ fontWeight: 600 }}>Execution Frequency</label>
+<<<<<<< HEAD
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '0.6rem' }}>
                 <button
                   type="button"
                   className={`btn ${frequency === 'daily' ? 'btn-primary' : 'btn-secondary'}`}
                   style={{ height: 40, justifyContent: 'center', padding: '0 0.5rem' }}
+=======
+              <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <button
+                  type="button"
+                  className={`btn ${frequency === 'daily' ? 'btn-primary' : 'btn-secondary'}`}
+                  style={{ flex: 1, padding: '0.65rem' }}
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                   onClick={() => setFrequency('daily')}
                 >
                   Daily
@@ -387,7 +433,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
                 <button
                   type="button"
                   className={`btn ${frequency === 'once_a_week' ? 'btn-primary' : 'btn-secondary'}`}
+<<<<<<< HEAD
                   style={{ height: 40, justifyContent: 'center', padding: '0 0.5rem' }}
+=======
+                  style={{ flex: 1, padding: '0.65rem' }}
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                   onClick={() => setFrequency('once_a_week')}
                 >
                   Once a Week
@@ -395,7 +445,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
                 <button
                   type="button"
                   className={`btn ${frequency === 'custom' ? 'btn-primary' : 'btn-secondary'}`}
+<<<<<<< HEAD
                   style={{ height: 40, justifyContent: 'center', padding: '0 0.5rem' }}
+=======
+                  style={{ flex: 1, padding: '0.65rem' }}
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                   onClick={() => setFrequency('custom')}
                 >
                   Custom Days
@@ -403,7 +457,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
               </div>
 
               {frequency === 'custom' && (
+<<<<<<< HEAD
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, minmax(0, 1fr))', gap: '0.4rem', marginTop: '0.6rem' }}>
+=======
+                <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'space-between', marginTop: '0.75rem' }}>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
                   {daysOfWeek.map((d) => {
                     const selected = customDays.includes(d.value);
                     return (
@@ -433,9 +491,13 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, tas
             </div>
           </div>
 
+<<<<<<< HEAD
           </div>
 
           <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end', marginTop: '0.25rem', paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
+=======
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end', marginTop: '0.5rem', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)' }}>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
             <button type="button" className="btn btn-secondary" onClick={onClose} style={{ padding: '0.65rem 1.25rem' }}>
               Cancel
             </button>

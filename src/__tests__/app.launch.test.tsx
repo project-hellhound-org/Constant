@@ -45,6 +45,7 @@ describe('App launch', () => {
     expect(screen.queryByRole('navigation', { name: 'Modules' })).toBeNull();
   }, 15000);
 
+<<<<<<< HEAD
   it('a returning user stays signed in after restarting the app and is greeted by name', async () => {
     mount();
     await screen.findByRole('form', { name: 'Create account' }, { timeout: 5000 });
@@ -62,6 +63,15 @@ describe('App launch', () => {
     const { createAccount, endSession } = await import('../auth/account');
     await createAccount({ name: 'Rithish', email: 'r@example.com', password: 'correct-horse' });
     endSession();
+=======
+  it('a returning user sees the sign-in form (not the app) until authenticated', async () => {
+    mount();
+    await screen.findByRole('form', { name: 'Create account' }, { timeout: 5000 });
+    cleanup(); sessionStorage.clear();
+    const { createAccount } = await import('../auth/account');
+    await createAccount({ name: 'Rithish', email: 'r@example.com', password: 'correct-horse' });
+    sessionStorage.clear();
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     mount();
     expect(await screen.findByRole('form', { name: 'Sign in' }, { timeout: 5000 })).toBeTruthy();
     expect(screen.queryByRole('navigation', { name: 'Modules' })).toBeNull();

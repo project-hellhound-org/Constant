@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { format } from 'date-fns';
+<<<<<<< HEAD
 import { AlertCircle, Bell, CheckCircle2, Download, KeyRound, Palette, Sparkles, Trash2, Upload, User, X } from 'lucide-react';
 import { NotificationSettings } from '../notifications/NotificationSettings';
+=======
+import { AlertCircle, CheckCircle2, Download, KeyRound, Palette, Sparkles, Trash2, Upload, User, X } from 'lucide-react';
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 import { db } from '../db/schema';
 import { AppearanceSection } from '../theme/AppearanceSection';
 import { AIEnginePanel } from '../components/AIEnginePanel';
@@ -11,7 +15,11 @@ import { exportAllTables, hasRecognizedTable, importTables } from '../db/backup'
 import { changePassword, checkPassword } from '../auth/account';
 import { isValidEmail, validatePasswordStrength } from '../auth/crypto';
 
+<<<<<<< HEAD
 type Section = 'profile' | 'ai' | 'appearance' | 'notifications';
+=======
+type Section = 'profile' | 'ai' | 'appearance';
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 type Protected = 'export' | 'import' | 'clear';
 export const RESET_EVENT = 'habitos:reset';
 
@@ -19,7 +27,10 @@ const SECTIONS: { id: Section; label: string; icon: React.ReactNode }[] = [
   { id: 'profile', label: 'Profile', icon: <User size={16} /> },
   { id: 'ai', label: 'AI Configuration', icon: <Sparkles size={16} /> },
   { id: 'appearance', label: 'Appearance', icon: <Palette size={16} /> },
+<<<<<<< HEAD
   { id: 'notifications', label: 'Notifications', icon: <Bell size={16} /> },
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 ];
 const GENDERS = ['', 'Female', 'Male', 'Non-binary', 'Prefer not to say'];
 
@@ -122,7 +133,10 @@ export const SettingsView: React.FC = () => {
 
       {section === 'ai' && <AIEnginePanel />}
       {section === 'appearance' && <AppearanceSection />}
+<<<<<<< HEAD
       {section === 'notifications' && <NotificationSettings />}
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
       {section === 'profile' && (<>
         <section className="liquid-panel" aria-label="Profile details">

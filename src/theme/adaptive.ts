@@ -19,9 +19,12 @@ export interface Adaptive {
 export const MIN_TEXT_CONTRAST = 4.5;
 export const MIN_CANVAS_CONTRAST = 3; // incidental text directly on the image; titles sit on panel-backed headers
 const SAFETY = 4.7; // margin above AA for panel text
+<<<<<<< HEAD
 /** The scrim may never hide more than this share of the artwork, otherwise the chosen background looks missing.
  *  Readability is guaranteed by the opaque-enough PANELS (every title and card sits on one), not by washing out the image. */
 export const MAX_SCRIM = 0.5;
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
 const toHex = (r: number, g: number, b: number) => '#' + [r, g, b].map((v) => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, '0')).join('');
 export const parseHex = (hex: string): [number, number, number] => { const h = hex.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; };
@@ -39,13 +42,20 @@ export function computeAdaptive(theme: ThemeDefinition, bg: BackgroundDef): Adap
   // Scrim: tint the artwork with the theme canvas colour until incidental text is readable (>= 3:1).
   let scrim = 1;
   for (let a = 0.35; a <= 1.0001; a += 0.01) { if (contrastRatio(weakest, blend(canvas, a, worstImg)) >= MIN_CANVAS_CONTRAST + 0.2) { scrim = Math.round(a * 100) / 100; break; } }
+<<<<<<< HEAD
   scrim = Math.min(scrim, MAX_SCRIM);
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   const worstCanvasHex = blend(canvas, scrim, worstImg);
 
   // Panels: as translucent as allowed while panel text keeps >= 4.5:1 over the worst-case canvas.
   const surface = t['--bg-surface'];
   let panelAlpha = 1;
+<<<<<<< HEAD
   for (let a = 0.86; a <= 1.0001; a += 0.01) { if (contrastRatio(weakest, blend(surface, a, worstCanvasHex)) >= SAFETY) { panelAlpha = Math.min(1, Math.round(a * 100) / 100); break; } }
+=======
+  for (let a = 0.86; a <= 1.0001; a += 0.01) { if (contrastRatio(weakest, blend(surface, a, worstCanvasHex)) >= SAFETY) { panelAlpha = Math.round(a * 100) / 100; break; } }
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   const worstPanelHex = blend(surface, panelAlpha, worstCanvasHex);
   return { scrimTop: scrim, scrimBody: scrim, panelAlpha, worstCanvasHex, worstPanelHex };
 }

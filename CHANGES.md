@@ -41,6 +41,7 @@ Sits directly under the calendar header (collapsible); pick a date and append en
 - `Task.endDate/endTime/dueDate` are unchanged (deadlines).
 
 (Earlier changes — sub-habits, Analytics charts, AI settings persistence, Markdown rendering, backup coverage — are still in effect.)
+<<<<<<< HEAD
 
 
 ## Unreleased
@@ -51,3 +52,5 @@ Sits directly under the calendar header (collapsible); pick a date and append en
 - Task modal: three sections merged into one aligned panel.
 - Packaging: icon set in `build/`, `resources/`, `public/`; web manifest; Capacitor config for Android/iOS; electron-builder config for Windows/macOS/Linux.
 - npm: lockfile updated via `npm audit fix` (0 production vulnerabilities); `allowScripts` policy added to package.json; entry bundle split (1.48 MB → 0.64 MB).
+=======
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e

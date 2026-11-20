@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { format } from 'date-fns';
 import { LayoutDashboard, ListChecks, CalendarDays, BarChart2, Calendar, Sparkles, Settings, DollarSign, Layers, LogOut, PanelLeftClose, PanelLeftOpen, LucideIcon } from 'lucide-react';
+=======
+import React from 'react';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { format } from 'date-fns';
+import { LayoutDashboard, ListChecks, CalendarDays, BarChart2, Calendar, Sparkles, Settings, DollarSign, Layers, LogOut, LucideIcon } from 'lucide-react';
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 import { db } from '../db/schema';
 import { ActiveTab } from '../App';
 import { Brand } from './Brand';
@@ -16,12 +23,16 @@ const SECTIONS: { label: string; items: { id: ActiveTab; label: string; icon: Lu
   { label: 'Insights', items: [{ id: 'analytics', label: 'Analytics', icon: BarChart2 }, { id: 'insights', label: 'Smart Insights', icon: Sparkles }] },
 ];
 
+<<<<<<< HEAD
 const COLLAPSE_KEY = 'habitos.sidebar.collapsed';
 const readCollapsed = () => { try { return localStorage.getItem(COLLAPSE_KEY) === '1'; } catch { return false; } };
 
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onSignOut }) => {
   const [collapsed, setCollapsed] = useState<boolean>(readCollapsed);
   const toggleCollapsed = () => setCollapsed((c) => { const n = !c; try { localStorage.setItem(COLLAPSE_KEY, n ? '1' : '0'); } catch { /* ignore */ } return n; });
+=======
+export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onSignOut }) => {
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   const todayIso = format(new Date(), 'yyyy-MM-dd');
   const habits = useLiveQuery(() => db.habits.where('archived').equals(0).toArray()) || [];
   const allLogs = useLiveQuery(() => db.habitLogs.toArray()) || [];
@@ -34,14 +45,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onSig
   const NavButton: React.FC<{ id: ActiveTab; label: string; icon: LucideIcon }> = ({ id, label, icon: Icon }) => {
     const isActive = activeTab === id;
     return (
+<<<<<<< HEAD
       <button onClick={() => setActiveTab(id)} className={`sidebar-nav-item ${isActive ? 'active' : ''}`} aria-current={isActive ? 'page' : undefined} title={collapsed ? label : undefined} aria-label={collapsed ? label : undefined} style={collapsed ? { justifyContent: 'center', padding: '0.7rem 0' } : undefined}>
         <Icon size={18} aria-hidden="true" style={{ flex: 'none' }} />
         {!collapsed && <span>{label}</span>}
+=======
+      <button onClick={() => setActiveTab(id)} className={`sidebar-nav-item ${isActive ? 'active' : ''}`} aria-current={isActive ? 'page' : undefined}>
+        <Icon size={18} aria-hidden="true" />
+        <span>{label}</span>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       </button>
     );
   };
 
   return (
+<<<<<<< HEAD
     <aside className="dynamic-sidebar" aria-label="Primary" data-collapsed={collapsed ? 'true' : 'false'} style={{ width: collapsed ? 76 : 264, padding: collapsed ? '1.5rem 0.6rem 1.25rem' : '1.5rem 1rem 1.25rem', position: 'sticky', top: 0, height: '100vh', flexShrink: 0, zIndex: 80, gap: '1.5rem', transition: 'width 180ms ease' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: collapsed ? 'center' : 'space-between', gap: '0.5rem', padding: collapsed ? 0 : '0 0.5rem', minHeight: 40 }}>
         {!collapsed && <Brand />}
@@ -54,12 +72,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onSig
             {collapsed
               ? <div aria-hidden="true" style={{ height: 1, background: 'var(--divider)', margin: '0.15rem 0.6rem 0.35rem' }} />
               : <div className="sidebar-section-title">{sec.label}</div>}
+=======
+    <aside className="dynamic-sidebar" aria-label="Primary" style={{ width: 264, padding: '1.5rem 1rem 1.25rem', position: 'sticky', top: 0, height: '100vh', flexShrink: 0, zIndex: 80, gap: '1.5rem' }}>
+      <div style={{ padding: '0 0.5rem' }}><Brand /></div>
+
+      <nav aria-label="Modules" style={{ display: 'flex', flexDirection: 'column', gap: '1.35rem', flex: 1, overflowY: 'auto', paddingRight: 2 }}>
+        {SECTIONS.map((sec) => (
+          <div key={sec.label} role="group" aria-label={sec.label} style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+            <div style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)', padding: '0 0.95rem 0.2rem' }}>{sec.label}</div>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
             {sec.items.map((it) => <NavButton key={it.id} {...it} />)}
           </div>
         ))}
       </nav>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+<<<<<<< HEAD
         {!collapsed && <div className="liquid-panel" style={{ padding: '0.95rem 1rem', fontSize: '0.8rem', background: 'var(--surface-sunken)', boxShadow: 'none' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.55rem' }}><span style={{ fontWeight: 600 }}>Today's Progress</span><strong className="num">{progressPct}%</strong></div>
           <div className="progress-bar-track" style={{ height: 6 }}><div className="progress-bar-fill" style={{ width: `${progressPct}%` }} /></div>
@@ -73,6 +101,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, onSig
               <span style={{ fontWeight: 600, fontSize: '0.86rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{name}</span>
               <span style={{ fontSize: '0.7rem', opacity: 0.8, display: 'inline-flex', alignItems: 'center', gap: 4 }}><Settings size={11} aria-hidden="true" /> Settings & AI</span>
             </span>}
+=======
+        <div className="liquid-panel" style={{ padding: '0.95rem 1rem', fontSize: '0.8rem', background: 'var(--surface-sunken)', boxShadow: 'none' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.55rem' }}><span style={{ fontWeight: 600 }}>Today's Progress</span><strong className="num">{progressPct}%</strong></div>
+          <div className="progress-bar-track" style={{ height: 6 }}><div className="progress-bar-fill" style={{ width: `${progressPct}%` }} /></div>
+          <div className="subtitle" style={{ fontSize: '0.74rem', marginTop: '0.55rem' }}>{progressPct >= 60 ? 'On track. Keep going!' : 'Small steps every day.'}</div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', padding: '0.6rem 0.5rem', borderTop: '1px solid var(--divider)' }}>
+          <button type="button" className="sidebar-nav-item" onClick={() => setActiveTab('settings')} aria-current={activeTab === 'settings' ? 'page' : undefined} style={{ padding: '0.55rem 0.6rem', flex: 1, minWidth: 0, background: activeTab === 'settings' ? 'var(--accent-primary)' : 'transparent', color: activeTab === 'settings' ? 'var(--text-on-accent)' : 'var(--text-primary)' }}>
+            <span aria-hidden="true" style={{ width: 32, height: 32, borderRadius: '50%', background: activeTab === 'settings' ? 'var(--text-on-accent)' : 'var(--accent-primary)', color: activeTab === 'settings' ? 'var(--accent-primary)' : 'var(--text-on-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, flex: 'none' }}>{name.charAt(0).toUpperCase()}</span>
+            <span style={{ display: 'flex', flexDirection: 'column', minWidth: 0, lineHeight: 1.2 }}>
+              <span style={{ fontWeight: 600, fontSize: '0.86rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{name}</span>
+              <span style={{ fontSize: '0.7rem', opacity: 0.8, display: 'inline-flex', alignItems: 'center', gap: 4 }}><Settings size={11} aria-hidden="true" /> Settings & AI</span>
+            </span>
+>>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
           </button>
           {onSignOut && <button type="button" className="btn btn-secondary btn-icon" aria-label="Sign out" title="Sign out" onClick={() => { endSession(); onSignOut(); }}><LogOut size={16} /></button>}
         </div>
