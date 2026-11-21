@@ -24,11 +24,8 @@ export function applyTheme(pref: ThemePreference, root: HTMLElement = document.d
   const surfaceRgb = hexToRgbString(theme.tokens['--bg-surface']);
   const panel = `rgba(${surfaceRgb}, ${ad.panelAlpha})`;
   for (const k of ['--bg-surface', '--card-bg', '--surface-color', '--surface-paper']) root.style.setProperty(k, panel);
-<<<<<<< HEAD
   // Sidebar / header chrome lets the artwork show through at the same opacity as panels.
   root.style.setProperty('--chrome-bg', `rgba(${hexToRgbString(theme.tokens['--bg-secondary'])}, ${Math.min(1, ad.panelAlpha + 0.06)})`);
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
   // Background image + adaptive scrim
   const [r, g, b] = parseHex(theme.tokens['--bg-primary']);

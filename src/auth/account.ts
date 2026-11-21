@@ -1,7 +1,6 @@
 import { db, AppSettings } from '../db/schema';
 import { hashPassword, verifyPassword } from './crypto';
 
-<<<<<<< HEAD
 const SESSION_KEY = 'habitos.session.v2';
 const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // stay signed in for 30 days unless the user signs out
 
@@ -21,12 +20,6 @@ export const greetingFor = (name?: string, now: Date = new Date()) => {
   const n = name?.trim();
   return n ? `${part}, ${n}` : part;
 };
-=======
-const SESSION_KEY = 'habitos.session.v1';
-export const isSessionActive = () => { try { return sessionStorage.getItem(SESSION_KEY) === '1'; } catch { return false; } };
-export const startSession = () => { try { sessionStorage.setItem(SESSION_KEY, '1'); } catch { /* ignore */ } };
-export const endSession = () => { try { sessionStorage.removeItem(SESSION_KEY); } catch { /* ignore */ } };
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
 /** An account exists once a password hash (or a legacy plain password from an older version) is stored. */
 export const hasAccount = (s?: AppSettings | null) => !!(s && ((s.passwordHash && s.passwordSalt) || s.appPassword));

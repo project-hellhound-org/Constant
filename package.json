@@ -15,7 +15,6 @@
     "test": "vitest run",
     "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:3000 && VITE_DEV_SERVER_URL=http://localhost:3000 electron .\"",
     "electron:build": "npm run build && electron-builder",
-<<<<<<< HEAD
     "validate": "python3 validate_env.py",
     "electron:build:win": "npm run build && electron-builder --win",
     "electron:build:mac": "npm run build && electron-builder --mac",
@@ -24,29 +23,19 @@
     "mobile:sync": "npm run build && cap sync",
     "mobile:android": "npm run mobile:sync && cap open android",
     "mobile:ios": "npm run mobile:sync && cap open ios"
-=======
-    "validate": "python3 validate_env.py"
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   },
   "build": {
     "appId": "com.projecthellhound.habitos",
     "productName": "CONSTANT",
     "copyright": "Copyright © 2026 Project Hellhound",
     "directories": {
-<<<<<<< HEAD
       "output": "dist_electron",
       "buildResources": "build"
-=======
-      "output": "dist_electron"
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     },
     "files": [
       "dist/**/*",
       "electron/**/*",
-<<<<<<< HEAD
       "build/icon.png",
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       "package.json"
     ],
     "linux": {
@@ -54,22 +43,16 @@
         "AppImage",
         "deb"
       ],
-<<<<<<< HEAD
       "icon": "build/icons",
       "category": "Utility",
       "maintainer": "Project Hellhound",
       "synopsis": "Habit, task and focus tracker"
-=======
-      "icon": "public/icon.png",
-      "category": "Utility"
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     },
     "win": {
       "target": [
         "nsis",
         "portable"
       ],
-<<<<<<< HEAD
       "icon": "build/icon.ico"
     },
     "nsis": {
@@ -78,31 +61,21 @@
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
       "shortcutName": "CONSTANT"
-=======
-      "icon": "public/icon.png"
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     },
     "mac": {
       "target": [
         "dmg",
         "zip"
       ],
-<<<<<<< HEAD
       "icon": "build/icon.icns",
-=======
-      "icon": "public/icon.png",
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       "category": "public.app-category.productivity"
     }
   },
   "dependencies": {
-<<<<<<< HEAD
     "@capacitor/android": "^8.6.2",
     "@capacitor/core": "^8.6.2",
     "@capacitor/ios": "^8.6.2",
     "@capacitor/local-notifications": "^8.3.1",
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     "@tiptap/extension-list": "^3.32.0",
     "@tiptap/extension-placeholder": "^3.32.0",
     "@tiptap/pm": "^3.31.4",
@@ -120,11 +93,8 @@
     "recharts": "^3.10.1"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@capacitor/assets": "^4.0.0",
     "@capacitor/cli": "^8.6.2",
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -147,12 +117,9 @@
   },
   "overrides": {
     "electron-winstaller": false
-<<<<<<< HEAD
   },
   "allowScripts": {
     "electron": true,
     "electron-winstaller": false
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   }
 }

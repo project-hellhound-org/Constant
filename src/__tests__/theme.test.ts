@@ -3,11 +3,7 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { THEME_LIST, THEMES, FONTS, DEFAULT_PREFERENCE } from '../theme/themes';
 import { BACKGROUNDS } from '../theme/backgrounds';
 import { validateTheme, normalizePreference, migrateLegacyThemeId, contrastRatio } from '../theme/validation';
-<<<<<<< HEAD
 import { computeAdaptive, MIN_TEXT_CONTRAST, MAX_SCRIM } from '../theme/adaptive';
-=======
-import { computeAdaptive, MIN_TEXT_CONTRAST, MIN_CANVAS_CONTRAST } from '../theme/adaptive';
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 import { applyTheme } from '../theme/resolver';
 
 describe('registry', () => {
@@ -45,12 +41,7 @@ describe('dynamic adaptation: every theme x every background stays readable', ()
     it(`${t.id} on ${b.name}`, () => {
       const a = computeAdaptive(t, b);
       // incidental text directly on the (scrimmed) canvas, worst-case region of the artwork
-<<<<<<< HEAD
       expect(a.scrimTop).toBeLessThanOrEqual(MAX_SCRIM); // artwork must stay visible
-=======
-      expect(contrastRatio(t.tokens['--text-muted'], a.worstCanvasHex)).toBeGreaterThanOrEqual(MIN_CANVAS_CONTRAST);
-      expect(contrastRatio(t.tokens['--text-primary'], a.worstCanvasHex)).toBeGreaterThanOrEqual(MIN_TEXT_CONTRAST);
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       // text on translucent panels over the same worst-case region
       expect(contrastRatio(t.tokens['--text-muted'], a.worstPanelHex)).toBeGreaterThanOrEqual(MIN_TEXT_CONTRAST);
       expect(a.panelAlpha).toBeGreaterThanOrEqual(0.86);
@@ -58,11 +49,7 @@ describe('dynamic adaptation: every theme x every background stays readable', ()
     });
   }
   it('adapts: the same background needs a different scrim for light and dark themes', () => {
-<<<<<<< HEAD
     const misty = BACKGROUNDS.find((b) => b.id === 'twilight-peaks')!;
-=======
-    const misty = BACKGROUNDS.find((b) => b.id === 'misty-forest')!;
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     const onSage = computeAdaptive(THEMES['sage-minimal'], misty);
     const onDark = computeAdaptive(THEMES['dark-mode'], misty);
     expect(onSage.scrimTop).not.toBe(onDark.scrimTop);

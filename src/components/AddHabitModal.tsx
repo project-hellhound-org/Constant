@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-<<<<<<< HEAD
 import { TimeListEditor } from '../notifications/TimeListEditor';
 import { sortTimes } from '../notifications/schedule';
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 import { format } from 'date-fns';
 import { Sparkles, X } from 'lucide-react';
 import { db, Habit, SubHabit } from '../db/schema';
@@ -25,10 +22,7 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({ isOpen, onClose, h
   const [amPm, setAmPm] = useState<'AM' | 'PM'>('AM');
   const [frequencyMode, setFrequencyMode] = useState<'everyday' | 'custom'>('everyday');
   const [selectedDays, setSelectedDays] = useState<number[]>(ALL_DAYS);
-<<<<<<< HEAD
   const [reminders, setReminders] = useState<string[]>([]);
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
   useEffect(() => {
     if (habitToEdit) {
@@ -36,14 +30,9 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({ isOpen, onClose, h
       setSubText((habitToEdit.subHabits || []).map((s) => s.title).join('\n'));
       setStartDate(habitToEdit.startDate || todayStr); setTime(habitToEdit.startTime || '08:00'); setAmPm(habitToEdit.amPm || 'AM');
       setFrequencyMode(habitToEdit.frequencyMode === 'custom' ? 'custom' : 'everyday'); setSelectedDays(habitToEdit.selectedDays?.length ? habitToEdit.selectedDays : ALL_DAYS);
-<<<<<<< HEAD
       setReminders(habitToEdit.reminderTimes || []);
     } else {
       setName(''); setCategory('Health'); setSubText(''); setStartDate(todayStr); setTime('08:00'); setAmPm('AM'); setFrequencyMode('everyday'); setSelectedDays(ALL_DAYS); setReminders([]);
-=======
-    } else {
-      setName(''); setCategory('Health'); setSubText(''); setStartDate(todayStr); setTime('08:00'); setAmPm('AM'); setFrequencyMode('everyday'); setSelectedDays(ALL_DAYS);
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     }
   }, [habitToEdit, isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -62,11 +51,7 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({ isOpen, onClose, h
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
-<<<<<<< HEAD
     const common = { name: name.trim(), category, frequencyMode, selectedDays: frequencyMode === 'everyday' ? ALL_DAYS : selectedDays, startDate, startTime: time, amPm, reminderTimes: sortTimes(reminders), subHabits: buildSubHabits() };
-=======
-    const common = { name: name.trim(), category, frequencyMode, selectedDays: frequencyMode === 'everyday' ? ALL_DAYS : selectedDays, startDate, startTime: time, amPm, subHabits: buildSubHabits() };
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
     if (habitToEdit) await db.habits.update(habitToEdit.id, { ...common, updatedAt: new Date().toISOString() });
     else await db.habits.add({ id: `habit-${Date.now()}`, ...common, color: 'var(--text-primary)', difficulty: 'medium', archived: 0, createdAt: new Date().toISOString() } as Habit);
     onClose();
@@ -121,14 +106,11 @@ export const AddHabitModal: React.FC<AddHabitModalProps> = ({ isOpen, onClose, h
             </div>)}
         </fieldset>
 
-<<<<<<< HEAD
         <div className="form-group">
           <label className="form-label" htmlFor="habit-reminders">Reminder times <span className="subtitle" style={{ fontWeight: 400 }}>(pop-up notification on scheduled days)</span></label>
           <TimeListEditor id="habit-reminders" value={reminders} onChange={setReminders} presets={[{ label: 'Morning', time: '08:00' }, { label: 'Evening', time: '20:00' }]} />
         </div>
 
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
         <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
           <button type="button" className="btn btn-secondary" onClick={onClose}>Cancel</button>
           <button type="submit" className="btn btn-primary" disabled={!name.trim()}>{habitToEdit ? 'Save Changes' : 'Create Habit'}</button>

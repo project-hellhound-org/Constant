@@ -5,26 +5,15 @@ import { ActiveTab } from '../App';
 import { StreakFlameIndicator } from './StreakFlameIndicator';
 import { StreakFreezeModal } from './StreakFreezeModal';
 import { calculateCurrentStreak } from '../engine/streakEngine';
-<<<<<<< HEAD
 import { Sparkles, Calendar, Search } from 'lucide-react';
-=======
-import { Sparkles, Calendar, PanelRightClose, Search } from 'lucide-react';
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 import { format } from 'date-fns';
 
 interface HeaderProps {
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
-<<<<<<< HEAD
 }
 
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
-=======
-  onToggleDrawer?: () => void;
-}
-
-export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onToggleDrawer }) => {
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   const todayStr = format(new Date(), 'EEEE, MMMM d, yyyy');
   const todayIso = format(new Date(), 'yyyy-MM-dd');
 
@@ -71,11 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onToggl
   const go = (tab: ActiveTab) => { setActiveTab(tab); setQuery(''); setSearchOpen(false); };
 
   return (
-<<<<<<< HEAD
     <header style={{ height: 'var(--header-height)', background: 'var(--chrome-bg, var(--bg-secondary))', borderBottom: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', padding: '0 1.5rem', position: 'sticky', top: 0, zIndex: 90 }}>
-=======
-    <header style={{ height: 'var(--header-height)', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', padding: '0 1.5rem', position: 'sticky', top: 0, zIndex: 90 }}>
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       <div style={{ position: 'relative', flex: '1 1 360px', maxWidth: 520 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', height: 42, padding: '0 0.85rem', background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)' }}>
           <Search size={16} aria-hidden="true" style={{ color: 'var(--text-muted)' }} />
@@ -105,12 +90,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, onToggl
         </div>
         <StreakFlameIndicator completionPct={completionPct} currentStreak={currentStreak} hasStreakFreeze={hasFreeze} onOpenFreezeModal={() => setIsFreezeModalOpen(true)} />
         <button className="btn btn-primary btn-xs" onClick={() => setActiveTab('insights')}><Sparkles size={12} /> AI Analyst</button>
-<<<<<<< HEAD
-=======
-        {onToggleDrawer && (
-          <button className="btn btn-secondary btn-icon" onClick={onToggleDrawer} aria-label="Toggle contextual drawer" title="Toggle contextual drawer"><PanelRightClose size={17} /></button>
-        )}
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
       </div>
 
       <StreakFreezeModal

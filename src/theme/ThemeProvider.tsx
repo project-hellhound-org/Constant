@@ -5,10 +5,7 @@ import { applyTheme } from './resolver';
 import { readLocalPreference, saveDbPreference, writeLocalPreference } from './persistence';
 import { THEMES, DEFAULT_PREFERENCE, ThemePreference } from './themes';
 import { isThemeId, normalizePreference } from './validation';
-<<<<<<< HEAD
 import { BACKGROUNDS } from './backgrounds';
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 
 export type SaveState = 'idle' | 'saved' | 'error';
 interface Ctx {
@@ -44,7 +41,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setPref((cur) => (cur.themeId === fromDb.themeId && cur.fontId === fromDb.fontId && cur.backgroundId === fromDb.backgroundId ? cur : fromDb));
   }, [settings?.themeId, settings?.fontId, settings?.backgroundId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-<<<<<<< HEAD
   // Warm the browser cache with every artwork while idle so switching never flashes an empty canvas.
   useEffect(() => {
     const warm = () => BACKGROUNDS.forEach((b) => { try { const i = new Image(); i.decoding = 'async'; i.src = b.url; } catch { /* ignore */ } });
@@ -53,8 +49,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return () => { if (typeof w.cancelIdleCallback === 'function') w.cancelIdleCallback(id); else clearTimeout(id); };
   }, []);
 
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   useEffect(() => {
     const applied = applyTheme(preference);
     writeLocalPreference(applied);

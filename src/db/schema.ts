@@ -40,11 +40,8 @@ export interface Habit {
   targetValue?: number;
   unit?: string;
   timeOfDay?: 'morning' | 'afternoon' | 'evening' | 'anytime';
-<<<<<<< HEAD
   /** Reminder times ("HH:mm", 24h) at which a pop-up / push notification is shown on days the habit is scheduled. */
   reminderTimes?: string[];
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
   startTime?: string; // e.g. "08:00"
   endTime?: string;   // e.g. "09:00"
   amPm?: 'AM' | 'PM';
@@ -364,13 +361,10 @@ export interface AppSettings {
   streakFreezeActiveUntil?: string | null;
   consecutiveDays100Pct: number;
   lastLoginDate?: string;
-<<<<<<< HEAD
   /** Master switch for habit reminders (default on). */
   habitRemindersEnabled?: boolean;
   /** Daily task progress summary: once, twice daily, or custom times. */
   taskSummary?: { enabled: boolean; mode: 'once' | 'twice' | 'custom'; times: string[] };
-=======
->>>>>>> 3188260cffcd6c1abd8c68ed70c6c1c7131ab17e
 }
 
 export interface AIConversation {
